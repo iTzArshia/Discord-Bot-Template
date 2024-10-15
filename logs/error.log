@@ -1,0 +1,5 @@
+[2024-10-15T02:45:55.207Z] ConnectTimeoutError: Connect Timeout Error
+    at onConnectTimeout (D:\Discord Codes\VPS\New Bot - Copy\node_modules\undici\lib\core\connect.js:190:24)
+    at D:\Discord Codes\VPS\New Bot - Copy\node_modules\undici\lib\core\connect.js:133:46
+    at Immediate._onImmediate (D:\Discord Codes\VPS\New Bot - Copy\node_modules\undici\lib\core\connect.js:172:33)
+    at process.processImmediate (node:internal/timers:483:21)
