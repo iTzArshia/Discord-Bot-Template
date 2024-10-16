@@ -1,3 +1,7 @@
+const chalk = require("chalk");
+const fs = require("fs");
+const path = require("path");
+
 module.exports = {
     logError: function (error) {
         const errorLog = `[${new Date().toISOString()}] ${error.stack || error}\n`;
