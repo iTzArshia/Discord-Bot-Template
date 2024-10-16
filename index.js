@@ -46,10 +46,11 @@ for (const file of eventFiles) {
         }
     } else {
         if (!("name" in event) && !("execute" in event))
-            console.log(chalk.yellowBright(`[WARNING] The event at "${filePath}" is missing a required "name" and "execute" property.`));
-        else if (!("name" in event)) console.log(chalk.yellowBright(`[WARNING] The event at "${filePath}" is missing a required "name" property.`));
+            console.log(chalk.yellowBright(`[WARNING] :: The event at "${filePath}" is missing a required "name" and "execute" property.`));
+        else if (!("name" in event))
+            console.log(chalk.yellowBright(`[WARNING] :: The event at "${filePath}" is missing a required "name" property.`));
         else if (!("execute" in event))
-            console.log(chalk.yellowBright(`[WARNING] The event at "${filePath}" is missing a required "execute" property.`));
+            console.log(chalk.yellowBright(`[WARNING] :: The event at "${filePath}" is missing a required "execute" property.`));
     }
 }
 
@@ -66,11 +67,11 @@ for (const file of contextMenuCommandFiles) {
         client.contextMenuCommands.set(command.data.name, command);
     } else {
         if (!("data" in command) && !("execute" in command))
-            console.log(chalk.yellowBright(`[WARNING] The command at "${filePath}" is missing a required "data" and "execute" property.`));
+            console.log(chalk.yellowBright(`[WARNING] :: The command at "${filePath}" is missing a required "data" and "execute" property.`));
         else if (!("data" in command))
-            console.log(chalk.yellowBright(`[WARNING] The command at "${filePath}" is missing a required "data" property.`));
+            console.log(chalk.yellowBright(`[WARNING] :: The command at "${filePath}" is missing a required "data" property.`));
         else if (!("execute" in command))
-            console.log(chalk.yellowBright(`[WARNING] The command at "${filePath}" is missing a required "execute" property.`));
+            console.log(chalk.yellowBright(`[WARNING] :: The command at "${filePath}" is missing a required "execute" property.`));
     }
 }
 
@@ -87,11 +88,11 @@ for (const file of slashCommandFiles) {
         client.slashCommands.set(command.data.name, command);
     } else {
         if (!("data" in command) && !("execute" in command))
-            console.log(chalk.yellowBright(`[WARNING] The command at "${filePath}" is missing a required "data" and "execute" property.`));
+            console.log(chalk.yellowBright(`[WARNING] :: The command at "${filePath}" is missing a required "data" and "execute" property.`));
         else if (!("data" in command))
-            console.log(chalk.yellowBright(`[WARNING] The command at "${filePath}" is missing a required "data" property.`));
+            console.log(chalk.yellowBright(`[WARNING] :: The command at "${filePath}" is missing a required "data" property.`));
         else if (!("execute" in command))
-            console.log(chalk.yellowBright(`[WARNING] The command at "${filePath}" is missing a required "execute" property.`));
+            console.log(chalk.yellowBright(`[WARNING] :: The command at "${filePath}" is missing a required "execute" property.`));
     }
 }
 
@@ -108,24 +109,24 @@ for (const file of prefixCommandFiles) {
         client.prefixCommands.set(command.name.toLowerCase(), command);
     } else {
         if (!("name" in command) && !("execute" in command))
-            console.log(chalk.yellowBright(`[WARNING] The command at "${filePath}" is missing a required "name" and "execute" property.`));
+            console.log(chalk.yellowBright(`[WARNING] :: The command at "${filePath}" is missing a required "name" and "execute" property.`));
         else if (!("name" in command))
-            console.log(chalk.yellowBright(`[WARNING] The command at "${filePath}" is missing a required "name" property.`));
+            console.log(chalk.yellowBright(`[WARNING] :: The command at "${filePath}" is missing a required "name" property.`));
         else if (!("execute" in command))
-            console.log(chalk.yellowBright(`[WARNING] The command at "${filePath}" is missing a required "execute" property.`));
+            console.log(chalk.yellowBright(`[WARNING] :: The command at "${filePath}" is missing a required "execute" property.`));
     }
 }
 
 // ? Anti Cras
 
 process.on("unhandledRejection", (reason, promise) => {
-    console.error(chalk.redBright("[antiCrash] :: Unhandled Rejection/Catch"));
+    console.error(chalk.redBright("[Anti Crash] :: Unhandled Rejection/Catch"));
     console.error(reason);
     logError(reason);
 });
 
 process.on("uncaughtException", (error, origin) => {
-    console.error(chalk.redBright("[antiCrash] :: Uncaught Exception/Catch"));
+    console.error(chalk.redBright("[Anti Crash] :: Uncaught Exception/Catch"));
     console.error(error);
     logError(error);
     setTimeout(() => {
@@ -134,18 +135,18 @@ process.on("uncaughtException", (error, origin) => {
 });
 
 process.on("warning", (warning) => {
-    console.warn(chalk.yellowBright("[antiCrash] :: Warning"));
+    console.warn(chalk.yellowBright("[Anti Crash] :: Warning"));
     console.warn(warning);
     logWarning(warning);
 });
 
 process.on("SIGINT", () => {
-    console.log(chalk.cyanBright("Received SIGINT. Shutting down gracefully..."));
+    console.log(chalk.cyanBright("[Process] :: Received SIGINT. Shutting down gracefully..."));
     process.exit(0);
 });
 
 process.on("SIGTERM", () => {
-    console.log(chalk.cyanBright("Received SIGTERM. Shutting down gracefully..."));
+    console.log(chalk.cyanBright("[Process] :: Received SIGTERM. Shutting down gracefully..."));
     process.exit(0);
 });
 
