@@ -4,9 +4,10 @@ const path = require("path");
 
 module.exports = {
     logError: function (error) {
+        console.error(error)
         const errorLog = `[${new Date().toISOString()}] ${error.stack || error}\n`;
         try {
-            const logsDir = path.join(__dirname, "logs");
+            const logsDir = path.join(process.cwd(), "logs");
             if (!fs.existsSync(logsDir)) {
                 fs.mkdirSync(logsDir);
             }
@@ -17,9 +18,10 @@ module.exports = {
     },
 
     logWarning: function (warning) {
+        console.warn(warning)
         const warningLog = `[${new Date().toISOString()}] ${warning.stack || warning}\n`;
         try {
-            const logsDir = path.join(__dirname, "logs");
+            const logsDir = path.join(process.cwd(), "logs");
             if (!fs.existsSync(logsDir)) {
                 fs.mkdirSync(logsDir);
             }

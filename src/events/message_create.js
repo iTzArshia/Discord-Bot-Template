@@ -63,7 +63,6 @@ module.exports = {
                 try {
                     await command.execute(client, message, args, cmd);
                 } catch (error) {
-                    console.error(error);
                     logError(error);
 
                     const embed = new Discord.EmbedBuilder()

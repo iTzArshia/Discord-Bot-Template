@@ -55,7 +55,6 @@ const rest = new Discord.REST().setToken(process.env.BOT_TOKEN);
 
         console.log(chalk.greenBright(`Successfully reloaded ${data.length} application commands.`));
     } catch (error) {
-        console.error(error);
         logError(error);
     }
 })();

@@ -49,7 +49,6 @@ module.exports = {
                 try {
                     await command.execute(client, interaction);
                 } catch (error) {
-                    console.error(error);
                     logError(error);
 
                     if (interaction.replied || interaction.deferred) {

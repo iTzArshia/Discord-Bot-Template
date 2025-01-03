@@ -121,22 +121,16 @@ for (const file of prefixCommandFiles) {
 
 process.on("unhandledRejection", (reason, promise) => {
     console.error(chalk.redBright("[Anti Crash] :: Unhandled Rejection/Catch"));
-    console.error(reason);
     logError(reason);
 });
 
 process.on("uncaughtException", (error, origin) => {
     console.error(chalk.redBright("[Anti Crash] :: Uncaught Exception/Catch"));
-    console.error(error);
     logError(error);
-    setTimeout(() => {
-        process.exit(1);
-    }, 5000);
 });
 
 process.on("warning", (warning) => {
     console.warn(chalk.yellowBright("[Anti Crash] :: Warning"));
-    console.warn(warning);
     logWarning(warning);
 });
 
