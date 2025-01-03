@@ -27,8 +27,8 @@ module.exports = {
 
                 const cooldowns = client.prefixCommandsCooldowns;
 
-                if (!cooldowns.has(command.data.name)) {
-                    cooldowns.set(command.data.name, new Discord.Collection());
+                if (!cooldowns.has(command.name.toLowerCase())) {
+                    cooldowns.set(command.name.toLowerCase(), new Discord.Collection());
                 }
 
                 const now = Date.now();
